@@ -20,12 +20,11 @@ jobs:
           NAME: Chikadze Evgenii Alexandrovich
           GROUP: M3114
           GITHUB_USERNAME: ${{github.actor}}
-          PATH: ${{github.action_path}}
         run: |
           echo "$NAME"
           echo "$GROUP"
           echo "$GITHUB_USERNAME"
-          echo "$PATH"
+          ls
           
       - name: Setup Python
         uses: actions/setup-python@v5
