@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - name: Author
         env:
           NAME: Chikadze Evgenii Alexandrovich
@@ -24,15 +25,16 @@ jobs:
           echo "$NAME"
           echo "$GROUP"
           echo "$GITHUB_USERNAME"
-          ls
           
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13' 
+          
       - name: Lint
         uses: py-actions/flake8@v2
         with:
           ignore: "F401"
+          
       - name: Testing
-        run: python -m unittest discover
+        run: python -m unittest discover -s tests
