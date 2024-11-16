@@ -1,0 +1,33 @@
+name: Geometric Lib Build
+on:
+  push:
+    branches: 
+      - "main"
+      - "release"
+  pull_request:
+    branches: 
+      - "main"
+      - "release"
+      - "develop"
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Author
+        env:
+          NAME: Chikadze Evgenii Alexandrovich
+          GROUP: M3114
+          GITHUB_USERNAME: ${{github.actor}}
+        run: |
+          echo "$NAME"
+          echo "$GROUP"
+          echo "$GITHUB_USERNAME"
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13' 
+      - name: Lint
+        uses: py-actions/flake8@v2
+      - name: Testing
+        run: python -m unittest discover -s ./tests
