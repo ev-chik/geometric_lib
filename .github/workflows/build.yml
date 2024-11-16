@@ -14,6 +14,7 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - name: Author
         env:
           NAME: Chikadze Evgenii Alexandrovich
@@ -30,4 +31,4 @@ jobs:
       - name: Lint
         uses: py-actions/flake8@v2
       - name: Testing
-        run: python -m unittest discover
+        run: python -m unittest discover -s /geometric_lib/tests
