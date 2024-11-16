@@ -4,8 +4,12 @@ import triangle
 
 
 class TestTriangleMethods(unittest.TestCase):
-    raise_test_data = [[-1, 1, 1], [1, -1, 1], [1, 1, -1], [0, 0, 0], [10, 1, 1], [1, 10, 1], [1, 1, 10]]
-    equal_test_data = [[1, 1, 1], [2 * 2 ** 0.5, math.e, 3], [3, 4, 5], [10000, 10001, 10002]]
+    raise_test_data = [
+        [-1, 1, 1], [1, -1, 1], [1, 1, -1], [0, 0, 0], [10, 1, 1], [1, 10, 1], [1, 1, 10]
+    ]
+    equal_test_data = [
+        [1, 1, 1], [2 * 2 ** 0.5, math.e, 3], [3, 4, 5], [10000, 10001, 10002]
+    ]
 
     def test_area_raises(self):
         for i in self.raise_test_data:

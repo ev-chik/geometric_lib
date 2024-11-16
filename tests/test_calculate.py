@@ -6,11 +6,15 @@ import triangle
 
 
 class TestCalculate(unittest.TestCase):
-    raise_test_data = [['hypercube', 'area', [1]], ['triangle', 'height', [1]], ['circle', 'area', [1, 2]],
-                       ['square', 'perimeter', [2, 3]], ['triangle', 'area', [1]]]
+    raise_test_data = [
+        ['hypercube', 'area', [1]], ['triangle', 'height', [1]], ['circle', 'area', [1, 2]],
+        ['square', 'perimeter', [2, 3]], ['triangle', 'area', [1]]
+    ]
 
-    equal_test_data = [['circle', 'area', [2]], ['square', 'perimeter', [5]], ['triangle', 'area', [3, 4, 5]],
-                       ['circle', 'perimeter', [1.5]], ['square', 'area', [2 ** 0.5]]]
+    equal_test_data = [
+        ['circle', 'area', [2]], ['square', 'perimeter', [5]], ['triangle', 'area', [3, 4, 5]],
+        ['circle', 'perimeter', [1.5]], ['square', 'area', [2 ** 0.5]]
+    ]
 
     functions = {
         ('circle', 'area'): circle.area,
@@ -27,7 +31,8 @@ class TestCalculate(unittest.TestCase):
             function = i[1]
             size = i[2]
 
-            self.assertRaises(AssertionError, calculate.calc, figure, function, size)
+            self.assertRaises(AssertionError, calculate.calc,
+                              figure, function, size)
 
     def test_calc(self):
         for i in self.equal_test_data:
